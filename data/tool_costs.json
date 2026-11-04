@@ -1,0 +1,38 @@
+{
+  "currency": "sim_unit",
+  "tools": {
+    "search_materials": {
+      "description": "按主题检索素材库，返回最相关的素材列表",
+      "cost": 0.5,
+      "duration_hours": 1.0
+    },
+    "generate_script": {
+      "description": "基于素材生成指定档位（premium/standard）的活动脚本",
+      "cost": 0.5,
+      "duration_hours": {
+        "premium": 4.0,
+        "standard": 2.0
+      }
+    },
+    "estimate_cost": {
+      "description": "估算当前方案的制作成本与工期，并判断预算/截止时间可行性",
+      "cost": 0.0,
+      "duration_hours": 0.1
+    },
+    "use_fallback_materials": {
+      "description": "素材检索失败时，改用内置通用模板素材（免费）",
+      "cost": 0.0,
+      "duration_hours": 0.2
+    },
+    "save_plan": {
+      "description": "保存最终活动方案（含预算/工期硬校验，超限拒绝保存）",
+      "cost": 0.0,
+      "duration_hours": 0.1
+    }
+  },
+  "policy": {
+    "failed_call_billing": 0.0,
+    "default_max_steps": 12,
+    "note": "失败的工具调用不计费，但计入步数"
+  }
+}

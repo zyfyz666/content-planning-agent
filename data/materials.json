@@ -1,0 +1,19 @@
+{
+  "materials": [
+    {"id": "M001", "title": "秋季新品上市预热15s竖版模板", "type": "video_template", "tags": ["秋季", "新品", "上市", "预热", "通用"]},
+    {"id": "M002", "title": "产品开箱测评口播脚本框架", "type": "script_template", "tags": ["测评", "开箱", "口播", "通用"]},
+    {"id": "M003", "title": "门店探店vlog素材包（秋日氛围）", "type": "video_footage", "tags": ["探店", "门店", "秋日", "vlog"]},
+    {"id": "M004", "title": "新品奶茶试饮反应合集", "type": "video_footage", "tags": ["奶茶", "饮品", "试饮", "新品"]},
+    {"id": "M005", "title": "节日促销倒计时贴纸与动效", "type": "sticker_pack", "tags": ["促销", "节日", "倒计时", "通用"]},
+    {"id": "M006", "title": "用户UGC好评截图模板", "type": "image_template", "tags": ["好评", "UGC", "口碑", "通用"]},
+    {"id": "M007", "title": "秋冬穿搭变装卡点BGM包", "type": "audio", "tags": ["秋冬", "穿搭", "变装", "卡点"]},
+    {"id": "M008", "title": "美妆成分党测评对比模板", "type": "script_template", "tags": ["美妆", "护肤", "测评", "成分"]},
+    {"id": "M009", "title": "3C数码开箱运镜素材包", "type": "video_template", "tags": ["数码", "3C", "开箱", "科技"]},
+    {"id": "M010", "title": "通用品牌露出片尾模板", "type": "video_template", "tags": ["通用", "品牌", "片尾"]}
+  ],
+  "fallback_materials": [
+    {"id": "F001", "title": "通用活动宣传脚本模板A", "type": "script_template", "tags": ["通用"]},
+    {"id": "F002", "title": "通用产品展示运镜模板", "type": "video_template", "tags": ["通用"]},
+    {"id": "F003", "title": "通用促销文案句式库", "type": "copy_library", "tags": ["通用"]}
+  ]
+}

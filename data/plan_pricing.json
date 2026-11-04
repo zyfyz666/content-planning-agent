@@ -1,0 +1,17 @@
+{
+  "tiers": {
+    "premium": {
+      "production_cost": 12.0,
+      "production_hours": 6.0,
+      "includes": ["高级脚本x3条", "达人合作分发", "付费投流"],
+      "description": "完整方案：达人合作+付费投流"
+    },
+    "standard": {
+      "production_cost": 8.0,
+      "production_hours": 4.0,
+      "includes": ["标准脚本", "自有账号矩阵分发"],
+      "description": "轻量方案：标准脚本+自有渠道分发"
+    }
+  },
+  "tier_order": ["premium", "standard"]
+}
