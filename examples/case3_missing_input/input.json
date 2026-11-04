@@ -1,0 +1,10 @@
+{
+  "command": "python -m src.main --theme \"周年庆大促\" --budget 15",
+  "inputs": {
+    "theme": "周年庆大促",
+    "budget": 15,
+    "deadline_hours": null
+  },
+  "model": "mock",
+  "note": "不传 --deadline-hours"
+}

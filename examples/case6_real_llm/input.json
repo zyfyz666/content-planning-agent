@@ -1,0 +1,10 @@
+{
+  "command": "python -m src.main --theme \"国庆黄金周出游季\" --budget 10 --deadline-hours 24 --model real",
+  "inputs": {
+    "theme": "国庆黄金周出游季",
+    "budget": 10,
+    "deadline_hours": 24
+  },
+  "model": "real",
+  "note": "真实模型 DeepSeek（需 .env 配置）"
+}

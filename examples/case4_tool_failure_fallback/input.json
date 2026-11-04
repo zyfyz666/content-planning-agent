@@ -1,0 +1,10 @@
+{
+  "command": "python -m src.main --theme \"冬季热饮上新\" --budget 20 --deadline-hours 24 --inject-fail \"search_materials:-1\"",
+  "inputs": {
+    "theme": "冬季热饮上新",
+    "budget": 20,
+    "deadline_hours": 24
+  },
+  "model": "mock",
+  "note": "--inject-fail \"search_materials:-1\" 表示素材检索始终失败"
+}

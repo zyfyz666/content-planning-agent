@@ -1,0 +1,114 @@
+{
+  "status": "completed",
+  "unfinished_reason": null,
+  "run_id": "run-44be73d1",
+  "task_plan": [
+    {
+      "step": "materials",
+      "title": "检索/准备素材",
+      "status": "success",
+      "attempts": 1,
+      "tool_calls": [
+        "search_materials"
+      ],
+      "detail": "执行成功"
+    },
+    {
+      "step": "script",
+      "title": "生成活动脚本",
+      "status": "success",
+      "attempts": 1,
+      "tool_calls": [
+        "generate_script"
+      ],
+      "detail": "执行成功"
+    },
+    {
+      "step": "estimate",
+      "title": "成本与工期估算",
+      "status": "success",
+      "attempts": 1,
+      "tool_calls": [
+        "estimate_cost"
+      ],
+      "detail": "执行成功"
+    },
+    {
+      "step": "save",
+      "title": "保存方案",
+      "status": "success",
+      "attempts": 1,
+      "tool_calls": [
+        "save_plan"
+      ],
+      "detail": "执行成功"
+    }
+  ],
+  "tool_results": {
+    "materials": [
+      {
+        "id": "M001",
+        "title": "秋季新品上市预热15s竖版模板",
+        "type": "video_template",
+        "tags": [
+          "秋季",
+          "新品",
+          "上市",
+          "预热",
+          "通用"
+        ],
+        "relevance": 1
+      }
+    ],
+    "materials_source": "search",
+    "script": {
+      "tier": "premium",
+      "theme": "双11预热活动",
+      "hook": "【双11预热活动】3秒抓眼开场",
+      "beats": [
+        "痛点引入",
+        "产品卖点展示",
+        "行动号召"
+      ],
+      "cta": "点击左下角立即参与",
+      "based_on_materials": [
+        "M001"
+      ],
+      "uses_fallback": false
+    },
+    "estimate": {
+      "tier": "premium",
+      "tool_fees_so_far": 1.0,
+      "production_cost": 12.0,
+      "projected_total": 13.0,
+      "budget": 20.0,
+      "within_budget": true,
+      "budget_gap": 0.0,
+      "projected_hours": 11.3,
+      "deadline_hours": 24.0,
+      "within_deadline": true,
+      "deadline_gap_hours": 0.0,
+      "feasible": true
+    }
+  },
+  "cost": {
+    "tool_fees": 1.0,
+    "production": 12.0,
+    "total": 13.0,
+    "budget": 20.0,
+    "within_budget": true
+  },
+  "duration": {
+    "projected_hours": 11.3,
+    "deadline_hours": 24.0,
+    "within_deadline": true
+  },
+  "saved_plan": {
+    "path": "examples\\case7_repeat_run\\runs\\run-44be73d1\\plan.json"
+  },
+  "steps_used": 4,
+  "max_steps": 12,
+  "notes": [
+    "重复执行：检测到该任务已有完成的方案，直接复用已保存结果（未重复执行工具、未重复扣费）"
+  ]
+}

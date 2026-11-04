@@ -1,0 +1,10 @@
+{
+  "command": "python -m src.main --theme \"周年庆庆典\" --budget 10 --deadline-hours 24 --inject-fail \"generate_script:2\"",
+  "inputs": {
+    "theme": "周年庆庆典",
+    "budget": 10,
+    "deadline_hours": 24
+  },
+  "model": "mock",
+  "note": "首次运行附加 --inject-fail \"generate_script:2\" 使其失败中断，第二次同输入续跑"
+}

@@ -1,0 +1,101 @@
+{
+  "status": "incomplete",
+  "unfinished_reason": "generate_script 连续 2 次失败，无法产出脚本；素材检索结果已保留",
+  "run_id": "run-79b21337",
+  "task_plan": [
+    {
+      "step": "materials",
+      "title": "检索/准备素材",
+      "status": "success",
+      "attempts": 1,
+      "tool_calls": [
+        "search_materials"
+      ],
+      "detail": "执行成功"
+    },
+    {
+      "step": "script",
+      "title": "生成活动脚本",
+      "status": "failed",
+      "attempts": 2,
+      "tool_calls": [
+        "generate_script",
+        "generate_script"
+      ],
+      "detail": "失败（模型可重试或改选替代方案）"
+    },
+    {
+      "step": "estimate",
+      "title": "成本与工期估算",
+      "status": "pending",
+      "attempts": 0,
+      "tool_calls": [],
+      "detail": ""
+    },
+    {
+      "step": "save",
+      "title": "保存方案",
+      "status": "pending",
+      "attempts": 0,
+      "tool_calls": [],
+      "detail": ""
+    }
+  ],
+  "tool_results": {
+    "materials": [
+      {
+        "id": "M001",
+        "title": "秋季新品上市预热15s竖版模板",
+        "type": "video_template",
+        "tags": [
+          "秋季",
+          "新品",
+          "上市",
+          "预热",
+          "通用"
+        ]
+      },
+      {
+        "id": "M002",
+        "title": "产品开箱测评口播脚本框架",
+        "type": "script_template",
+        "tags": [
+          "测评",
+          "开箱",
+          "口播",
+          "通用"
+        ]
+      },
+      {
+        "id": "M005",
+        "title": "节日促销倒计时贴纸与动效",
+        "type": "sticker_pack",
+        "tags": [
+          "促销",
+          "节日",
+          "倒计时",
+          "通用"
+        ]
+      }
+    ],
+    "materials_source": "search",
+    "script": null,
+    "estimate": {}
+  },
+  "cost": {
+    "tool_fees": 0.5,
+    "production": 0.0,
+    "total": 0.5,
+    "budget": 10.0,
+    "within_budget": false
+  },
+  "duration": {
+    "projected_hours": null,
+    "deadline_hours": 24.0,
+    "within_deadline": false
+  },
+  "saved_plan": null,
+  "steps_used": 3,
+  "max_steps": 12,
+  "notes": []
+}

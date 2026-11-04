@@ -1,0 +1,10 @@
+{
+  "command": "python -m src.main --theme \"双11预热活动\" --budget 20 --deadline-hours 24",
+  "inputs": {
+    "theme": "双11预热活动",
+    "budget": 20,
+    "deadline_hours": 24
+  },
+  "model": "mock",
+  "note": "同一命令连续运行两次，对比 result_run1/run2"
+}

@@ -25,30 +25,44 @@ python -m pytest tests -q
 ## 目录结构
 
 ```
-src/
-  schemas.py   # 数据结构（TaskInput / Action / Observation / RunState / FinalResult）
-  llm.py       # 模型层：MockPlannerLLM（离线规则策略）+ OpenAICompatLLM（真实模型）
-  tools.py     # 5 个工具 + 计费 + 故障注入
-  agent.py     # ReAct 主循环 / 状态持久化 / 重规划
-  main.py      # CLI 入口
-data/          # 合成数据：素材库、成本价格表、档位定价
-tests/         # 16 个 pytest 用例，覆盖全部验收点
-docs/          # 01 设计 · 02 工具与计费 · 03 ReAct 决策 · 04 状态与续跑 · 05 测试
-examples/      # 6 组真实运行记录（含两条不同决策路径）
+src/            # 项目代码（schemas / llm / tools / agent / main）
+  schemas.py    # 数据结构（TaskInput / Action / Observation / RunState / FinalResult）
+  llm.py        # 模型层：MockPlannerLLM（离线规则策略）+ OpenAICompatLLM（真实模型）
+  tools.py      # 5 个工具 + 计费 + 故障注入
+  agent.py      # ReAct 主循环 / 状态持久化 / 重规划
+  main.py       # CLI 入口
+tests/          # 16 个 pytest 用例，覆盖全部验收点
+examples/       # 8 组运行记录：输入、实际输出、Trace（含两条不同决策路径）
+data/           # 合成数据：素材库、成本价格表、档位定价
+docs/
+  01-requirements.md   # 用户、目标、范围、成功标准
+  02-solution.md       # 调用流程、动态决策、技术取舍
+  03-evaluation.md     # 测试预期、实际结果、失败和限制
+  04-ai-usage.md       # AI 辅助内容、个人修改及验证
+  05-retrospective.md  # 最难问题、学习收获、下一步
+requirements.txt / .env.example
 ```
 
 ## 功能与考核点对照
 
 | 考核要求 | 实现 | 证据 |
 |---|---|---|
-| ReAct 循环（决策→工具→观察→调整） | `src/agent.py` ReActAgent，每步记录 thought 与 decision_basis | `docs/03`、`examples/*/runs/*/trace.jsonl` |
+| ReAct 循环（决策→工具→观察→调整） | `src/agent.py` ReActAgent，每步记录 thought 与 decision_basis | `docs/02-solution.md`、`examples/*/trace.jsonl` |
 | ≥2 条不同决策路径 | Mock：premium 超预算后降级；真实 DeepSeek 直接选 standard | `examples/case1,2` vs `case6` |
-| 步数上限与未完成状态 | `--max-steps`（默认 12），耗尽返回 incomplete + 已保留结果 | `tests/test_repeat_and_resume.py` |
-| 缺输入不执行 | 缺 theme/budget/deadline 立即结束，不调用任何付费工具 | `tests/test_missing_inputs.py` |
-| 工具失败处理 | 重试 1 次 → 兜底素材 → 仍败则停止并保留已完成结果；脚本 2 连败停止 | `tests/test_tool_failure.py`、case4 |
+| 步数上限与未完成状态 | `--max-steps`（默认 12），耗尽返回 incomplete + 已保留结果 | `tests/test_repeat_and_resume.py`、`examples/case8` |
+| 缺输入不执行 | 缺 theme/budget/deadline 立即结束，不调用任何付费工具 | `examples/case3`、`tests/test_missing_inputs.py` |
+| 工具失败处理 | 重试 1 次 → 兜底素材 → 仍败则停止并保留已完成结果；脚本 2 连败停止 | `examples/case4,8`、`tests/test_tool_failure.py` |
 | 预算超限 | premium 13 超预算 10 → 自动降级 standard 9.5（题面参考实例） | `examples/case2` |
-| 重复执行幂等 | 相同输入复用结果、不重复扣费；未完成任务自动续跑（加分项） | `docs/04`、`tests/test_repeat_and_resume.py` |
+| 重复执行幂等 | 相同输入复用结果、不重复扣费；未完成任务自动续跑 | `examples/case7,8`、`docs/02-solution.md` |
 | 真实模型接入 | OpenAI 兼容协议（DeepSeek/GLM/Qwen），`.env` 配置，Mock 与真实模型同一决策接口 | `examples/case6_real_llm` |
+
+## 评审入口（3 分钟快速验证）
+
+```bash
+pip install -r requirements.txt
+python -m pytest tests -q                                                    # 16 个用例全过
+python -m src.main --theme "秋季新品奶茶上市" --budget 10 --deadline-hours 24  # 参考实例：13 超限→降级 9.5 保存
+```
 
 ## 计费模型（简化）
 
